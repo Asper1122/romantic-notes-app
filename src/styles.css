@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import url('../node_modules/bootstrap-icons/font/bootstrap-icons.css');
+
+* {
+  font-family: 'DancingScript', monospace;
+}
+
+body {
+  background-color: #fedfe3;
+}
+
+.text-pinky {
+  color: #ee5789;
+}
+
+.text-violet {
+  color: #761741;
+}

@@ -1,0 +1,37 @@
+.fondo-notas {
+  position: relative;
+  background: linear-gradient(135deg, #ffc0cb, #ffe4ec); /* rosa suave */
+  border-radius: 20px;
+  padding: 20px;
+  color: white;
+  text-align: center;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(255, 182, 193, 0.5);
+  height: 65vh;
+  margin: 25px
+}
+
+.nota {
+  border-radius: 20px;
+  background-color: #fef8f5;
+}
+
+.titulo-nota {
+  margin-left: 450px;
+}
+
+i {
+  font-size: 18pt;
+}
+
+button {
+  width: 140px;
+  height: 140px;
+  border-radius: 200px;
+  background-color: #fd7ba0;
+  border: none
+}
+
+button > i {
+  font-size: 50pt;
+}

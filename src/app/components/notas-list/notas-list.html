@@ -1,7 +1,7 @@
 <div class="m-1">
   <div class="fondo-notas row overflow-auto">
     @for (nota of notas; track $index) {
-      <div class="col-12 mt-2 nota py-4" (click)="cargarDetalleNota()">
+      <div class="col-12 mt-2 nota py-2" (click)="cargarDetalleNota(nota.id)">
         <div class="d-flex justify-content-between">
           <h3 class="mt-4 text-violet titulo-nota">{{ nota.title }}</h3>
           <i class="bi bi-caret-right-fill text-violet mt-4"></i>

@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MessagesService } from '../../services/messages-service';
 
 @Component({
@@ -9,24 +9,20 @@ import { MessagesService } from '../../services/messages-service';
 })
 export class MessageContent implements OnInit{
 
-  constructor(private mensajeService: MessagesService,
-    private cd: ChangeDetectorRef
+  constructor(private mensajeService: MessagesService
   ) {}
 
   mensaje: string | null = null;
 
   ngOnInit(): void {
-    document.addEventListener("DOMContentLoaded", () => {
-      this.loadMessage();
-    })
+    this.loadMessage();
   }
 
   private loadMessage() {
     const mensajeGuardado = localStorage.getItem("mensajeDia");
 
-    if(mensajeGuardado) {
+    if(mensajeGuardado && this.isIdValid()) {
       this.mensaje = mensajeGuardado;
-      this.cd.detectChanges();
     }
 
     else {
@@ -41,10 +37,20 @@ export class MessageContent implements OnInit{
 
           this.mensaje = messages[index].text;
           localStorage.setItem("mensajeDia", this.mensaje);
-          this.cd.detectChanges();
+          localStorage.setItem("idMensaje", messages[index].id.toString())
         },
         error: err => console.error("Error cargando mensajes", err)
       });
     }
+  }
+
+  private isIdValid() {
+    const idMensaje = localStorage.getItem("idMensaje");
+
+    if(idMensaje) {
+      return Number.parseInt(idMensaje) == new Date().getDate();
+    }
+
+    return false;
   }
 }

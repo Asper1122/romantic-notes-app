@@ -1,1 +1,14 @@
-<p>nota-detail works!</p>
+<div class="editor-container">
+
+  <div class="botones">
+      <i class="bi bi-x-lg cancelar ms-3" (click)="cancelar()"></i>
+      <i class="bi bi-check-lg confirmar me-3" (click)="guardarNota()"></i>
+  </div>
+  <input name="titulo" class="titulo" placeholder="Título de la nota" [(ngModel)]="titulo" />
+
+  <textarea name="contenido" class="contenido" placeholder="Escribe tu nota aquí" [(ngModel)]="contenido" rows="50"></textarea>
+
+  <div class="text-center container-btn-borrar">
+    <button class="btn-borrar" (click)="borrarNota()">Borrar nota</button>
+  </div>
+</div>

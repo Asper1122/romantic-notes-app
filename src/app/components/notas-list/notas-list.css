@@ -14,6 +14,7 @@
 .nota {
   border-radius: 20px;
   background-color: #fef8f5;
+  max-height: 100px;
 }
 
 .titulo-nota {

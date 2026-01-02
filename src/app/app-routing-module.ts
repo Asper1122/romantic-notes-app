@@ -4,7 +4,10 @@ import { NotaDetail } from './pages/nota-detail/nota-detail';
 import { Home } from './pages/home/home';
 
 const routes: Routes = [
-  { path: "nota/:id", component: NotaDetail },
+  {
+    path: "nota/:id",
+    component: NotaDetail,
+  },
   { path: "home", component: Home },
   { pathMatch: "full", path: "", redirectTo: "/home" }
 ];

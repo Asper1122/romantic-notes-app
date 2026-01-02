@@ -15,12 +15,12 @@
 }
 
 .confirmar {
-  font-size: 60pt;
+  font-size: 35pt;
   color: #333;
 }
 
 .cancelar {
-  font-size: 60pt;
+  font-size: 35pt;
   color: #333;
 }
 
@@ -31,7 +31,7 @@
   margin-top: 50px;
   border-radius: 15px;
   border: 2px solid #ff69b4;
-  font-size: 50pt;
+  font-size: 24pt;
   font-weight: bold;
   background: #fff0f5;
   outline: none;
@@ -44,12 +44,11 @@
   padding: 15px;
   border-radius: 15px;
   border: 2px solid #ff69b4;
-  font-size: 35pt;
+  font-size: 16pt;
   background: #fff0f5;
   color: #333;
   font-family: 'Courier New', Courier, monospace;
   resize: vertical;
-  height: 800px;
   box-shadow: 0 4px 10px rgba(255, 105, 180, 0.2);
   outline: none;
 }
@@ -67,7 +66,7 @@
   border: none;
   background: #ff69b4;
   color: white;
-  font-size: 40pt;
+  font-size: 16pt;
   font-weight: bold;
   cursor: pointer;
   box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);

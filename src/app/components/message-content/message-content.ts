@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { MessagesService } from '../../services/messages-service';
+import { firstValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-message-content',
@@ -9,7 +10,8 @@ import { MessagesService } from '../../services/messages-service';
 })
 export class MessageContent implements OnInit{
 
-  constructor(private mensajeService: MessagesService
+  constructor(private mensajeService: MessagesService,
+    private cdr: ChangeDetectorRef
   ) {}
 
   mensaje: string | null = null;
@@ -18,29 +20,33 @@ export class MessageContent implements OnInit{
     this.loadMessage();
   }
 
-  private loadMessage() {
+  private async loadMessage() {
     const mensajeGuardado = localStorage.getItem("mensajeDia");
 
     if(mensajeGuardado && this.isIdValid()) {
       this.mensaje = mensajeGuardado;
+      return;
     }
 
-    else {
-      this.mensajeService.getMessages().subscribe({
-        next: messages => {
-          if(messages.length === 0) return;
+    try {
+      const messages = await firstValueFrom(
+        this.mensajeService.getMessages()
+      );
 
-          const today = new Date().getDate();
-          const index = messages.findIndex(message => message.id === today);
+      if(!messages.length) return;
 
-          if(index === -1) return;
+      const today = new Date().getDate();
+      const index = messages.findIndex(m => m.id === today);
 
-          this.mensaje = messages[index].text;
-          localStorage.setItem("mensajeDia", this.mensaje);
-          localStorage.setItem("idMensaje", messages[index].id.toString())
-        },
-        error: err => console.error("Error cargando mensajes", err)
-      });
+      if(index === -1) return;
+
+      this.mensaje = messages[index].text;
+      this.cdr.markForCheck();
+
+      localStorage.setItem("mensajeDia", this.mensaje);
+      localStorage.setItem("idMensaje", today.toString());
+    } catch (err) {
+      console.error("Error cargando mensaje", err);
     }
   }
 

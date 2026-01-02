@@ -8,17 +8,17 @@
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(255, 182, 193, 0.5);
   height: 65vh;
-  margin: 25px
+  margin: 25px;
 }
 
 .nota {
   border-radius: 20px;
   background-color: #fef8f5;
-  max-height: 100px;
+  height: 70px;
 }
 
 .titulo-nota {
-  margin-left: 450px;
+  margin-left: 17%;
 }
 
 i {
@@ -26,13 +26,13 @@ i {
 }
 
 button {
-  width: 140px;
-  height: 140px;
-  border-radius: 200px;
+  width: 60px;
+  height: 60px;
+  border-radius: 100px;
   background-color: #fd7ba0;
   border: none
 }
 
 button > i {
-  font-size: 50pt;
+  font-size: 25pt;
 }
